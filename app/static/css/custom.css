@@ -1,0 +1,10 @@
+.thumb {
+    margin-bottom: 30px;
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.overflow-img {
+    overflow-y: hidden;
+    max-height: 120px;
+}
