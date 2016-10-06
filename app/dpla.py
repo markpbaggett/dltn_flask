@@ -28,7 +28,9 @@ def show_results(current_page, search_term):
         except:
             data_provider = 'Unknown'
             pass
-        things.append({'link': doc['isShownAt'], 'image': doc['object'], 'dataProvider': data_provider, 'title': doc['sourceResource']['title'][0]})
+        preview = doc['object']
+        thumbnail = preview.replace('crossroads.rhodes.edu:9090/', 'fedora.crossroadstofreedom.org/')
+        things.append({'link': doc['isShownAt'], 'image': thumbnail, 'dataProvider': data_provider, 'title': doc['sourceResource']['title'][0]})
         number += 1
     return things
 
