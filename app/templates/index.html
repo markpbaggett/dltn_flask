@@ -2,15 +2,16 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-4">
-
         </div>
         <div class="col-sm-4">
             <div class="row">
                 <div class="input-group">
-                    <form action="" method="post" name="search">
-                        <p>{{ form.searchtext(size=80) }}<br></p>
-                        <p><input type="submit" value="Search"></p>
-                    </form>
+                    <form action="" method="post" name="search" id="search-box">
+                    {{ form.searchtext(class="form-control", placeholder="Search for...") }}
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Search</button>
+                    </span>
+                        </form>
                 </div>
             </div>
         </div>

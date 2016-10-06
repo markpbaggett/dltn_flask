@@ -8,3 +8,7 @@
     overflow-y: hidden;
     max-height: 120px;
 }
+
+form#search-box {
+    display: inherit;
+}
