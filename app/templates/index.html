@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="input-group">
                     <form action="" method="post" name="search" id="search-box">
-                    {{ form.searchtext(class="form-control", placeholder="Search for...") }}
+                    {{ form.searchtext(class="form-control", size=80, placeholder="Search DPLA for...") }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Search</button>
                     </span>
@@ -19,6 +19,18 @@
         <div class="col-sm-4">
         </div>
     </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+            {%  if facets %}
+            {% for facet in facets %}
+                {% set newfacet = facet.place %}
+                <p><a href="/search={{ searchterm }}&place={{ newfacet }}">{{ facet.place }}: {{ facet.results }}</a></p>
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
