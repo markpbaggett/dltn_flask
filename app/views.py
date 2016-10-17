@@ -26,11 +26,24 @@ def index():
                             title='Home',
                            form=form)
 
-@app.route('/search=<searchterm>&place=<newfacet>')
+@app.route('/search=<searchterm>&place=<newfacet>', methods=['GET', 'POST'])
 def results(searchterm, newfacet):
     form = SearchBox()
     results = limit_results(newfacet, searchterm)
-    print(results)
+    if request.method == 'POST':
+        results = get_results(form.searchtext.data)
+        url = print_url(1, form.searchtext.data)
+        stuff = show_results(1, form.searchtext.data)
+        facets = stuff[1]
+        things = stuff[0]
+        return render_template('index.html',
+                               title='Results',
+                               url=url,
+                               results=results,
+                               things=things,
+                               form=form,
+                               facets=facets,
+                               searchterm=form.searchtext.data)
     return render_template('index.html',
                            title='Results',
                            things=results,
