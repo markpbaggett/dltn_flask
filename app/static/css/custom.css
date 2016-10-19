@@ -12,3 +12,15 @@
 form#search-box {
     display: inherit;
 }
+
+.facets{
+    float: left;
+    display: inline;
+    width: 30%;
+}
+
+.thumb-container{
+    float: right;
+    display:inline;
+    width: 70%;
+}
