@@ -1,54 +1,37 @@
 {% extends "header.html" %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="input-group">
-                    <form action="" method="post" name="search" id="search-box">
-                    {{ form.searchtext(class="form-control", size=80, placeholder="Search DPLA for...") }}
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Search</button>
-                    </span>
-                        </form><br/>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-        </div>
-    </div>
-    </div>
     <div class="container">
         <div class="row">
-            {%  if facets %}
+            {% if facets %}
                 <div class="facets hidden-sm hidden-xs">
                     <div class="col-md-12">
                         <h2>Facet by Institution</h2>
                         {% for facet in facets %}
                             {% set newfacet = facet.place %}
-                            <p><a href="/search={{ searchterm }}&place={{ newfacet }}">{{ facet.place }}: {{ facet.results }}</a></p>
+                            <p>
+                                <a href="/search={{ searchterm }}&place={{ newfacet }}">{{ facet.place }}: {{ facet.results }}</a>
+                            </p>
                         {% endfor %}
                     </div>
                 </div>
-            {% if things %}
-                <div class="thumb-container">
-                {% for thing in things %}
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail thumb">
-                            <a href="{{ thing.link }}">
-                                <img class="img-responsive overflow-img" src="{{ thing.image }}" alt="test"/>
-                            </a>
-                                <div class="caption">
-                                    <h6><a href="{{ thing.link }}">{{ thing.title }}</a> - Available from: {{ thing.dataProvider }}</h6>
+                {% if things %}
+                    <div class="thumb-container">
+                        {% for thing in things %}
+                            <div class="col-xs-6 col-md-3">
+                                <div class="thumbnail thumb">
+                                    <a href="{{ thing.link }}">
+                                        <img class="img-responsive overflow-img" src="{{ thing.image }}" alt="test"/>
+                                    </a>
+                                    <div class="caption">
+                                        <h6><a href="{{ thing.link }}">{{ thing.title }}</a> - Available
+                                            from: {{ thing.dataProvider }}</h6>
+                                    </div>
                                 </div>
-                        </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-                </div>
-            {% endif %}
-            {% elif things%}
+                {% endif %}
+            {% elif things %}
                 {% for thing in things %}
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail thumb">
@@ -56,7 +39,8 @@
                                 <img class="img-responsive overflow-img" src="{{ thing.image }}" alt="test"/>
                             </a>
                             <div class="caption">
-                                <h6><a href="{{ thing.link }}">{{ thing.title }}</a> - Available from: {{ thing.dataProvider }}</h6>
+                                <h6><a href="{{ thing.link }}">{{ thing.title }}</a> - Available
+                                    from: {{ thing.dataProvider }}</h6>
                             </div>
                         </div>
                     </div>
