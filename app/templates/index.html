@@ -61,6 +61,10 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% elif title is equalto 'Results' %}
+                <div>
+                    <h3>Your search returned no results.</h3>
+                </div>
             {% endif %}
         </div>
     </div>
