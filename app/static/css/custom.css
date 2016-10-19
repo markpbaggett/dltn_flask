@@ -24,3 +24,9 @@ form#search-box {
     display:inline;
     width: 70%;
 }
+
+@media only screen and (max-width: 768px){
+    .thumb-container{
+        width: 100%;
+    }
+}
