@@ -1,6 +1,6 @@
-from flask.ext.wtf import Form
+from flask.ext.wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired
 
-class SearchBox(Form):
+class SearchBox(FlaskForm):
     searchtext = StringField('searchtext')
